@@ -1,9 +1,4 @@
-// export function RenderTodo(props) {
-//     const todos = props.todos;
 export function RenderTodo({ todos }) {
-  // use the benefit of object destructuring.
-  console.log(todos);
-
   return (
     <div>
       {todos?.map((el, idx) => {

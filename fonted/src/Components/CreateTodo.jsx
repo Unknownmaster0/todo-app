@@ -1,18 +1,6 @@
 import { useState } from "react";
 
 export function CreateTodo(props) {
-  // function OnClickHandler() {
-  //   const input1 = document.getElementById("ip1");
-  //   const input2 = document.getElementById("ip2");
-  //   const title = input1.value;
-  //   const description = input2.value;
-  //   props.setState([...props.Obj, { title, description, completed: "false" }]);
-  //   input1.value = "";
-  //   input2.value = "";
-  // }
-
-  // console.log(props); Obj: [{}], and setState:func
-
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -39,7 +27,6 @@ export function CreateTodo(props) {
         />
       </div>
       <div>
-        {/* <button onClick={OnClickHandler}>Click to add todo</button> */}
         <button
           onClick={function () {
             fetch("http://localhost:8000/addTodo", {
