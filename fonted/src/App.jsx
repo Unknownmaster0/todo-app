@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { CreateTodo } from "./Components/CreateTodo";
 import { RenderTodo } from "./Components/RenderTodo";
@@ -6,15 +6,18 @@ import { RenderTodo } from "./Components/RenderTodo";
 function App() {
   const [Obj, setState] = useState([]);
 
-  fetch("http://localhost:8000/viewTodo")
-    .then(async (res) => {
-      const json = await res.json();
-      setState(json.todos);
-    })
-    .catch((err) => {
-      console.log(`error while fetching data`);
-      console.error(err);
-    });
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await fetch("http://localhost:8000/viewTodo");
+        const data = await res.json();
+        setState(data.todos);
+      } catch (err) {
+        console.log(`error while fetching data`);
+        console.error(err);
+      }
+    })();
+  }, [Obj, setState]);
 
   return (
     <>

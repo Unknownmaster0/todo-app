@@ -7,7 +7,7 @@ const cors = require("cors");
 
 connectionDB()
   .then(() => {
-    app.listen(port, () => {
+    app.listen(port, '0.0.0.0', () => {
       console.log(`App is listening on port ${port}`);
     });
   })
